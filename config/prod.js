@@ -1,4 +1,4 @@
-const { googleClientSecret, stripePublishableKey } = require("./dev");
+//const { googleClientSecret, stripePublishableKey } = require("./dev");
 
 // prod.js - production keys here!!
 module.exports = {
