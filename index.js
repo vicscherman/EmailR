@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 const bodyParser = require('body-parser')
 //make sure the model is imported before the passport service is used.....
 require("./models/User");
+require("./models/Survey")
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI, {
@@ -32,6 +33,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app)
 
 //code only runs in production environment
 if(process.env.NODE_ENV === 'production'){
@@ -52,3 +54,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
+
+
+//remember that the localhost redirect for development command is npx ngrok http 5000. You'll have to manually set this endpoint in sendgrid
